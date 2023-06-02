@@ -7,6 +7,7 @@ import android.widget.Button
 import android.widget.TextView
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
@@ -32,8 +33,9 @@ class MainActivity : AppCompatActivity() {
     }
 }
 
-private fun downloadUserData() {
+private suspend fun downloadUserData() { // more like "async" function in JavaScript?
     for (i in 1..200_000) {
         Log.i("MyTag", "Downloading user $i in ${Thread.currentThread().name}")
+        delay(100) // milliseconds something like "await" in JavaScript?
     }
 }
